@@ -24,4 +24,4 @@ namespace PetControl.Api.Controllers
             return _handler.Handle(command);
         }
     }
-}
+}    

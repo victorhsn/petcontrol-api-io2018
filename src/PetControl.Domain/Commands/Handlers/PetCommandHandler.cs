@@ -23,7 +23,7 @@ namespace PetControl.Domain.Commands.Handlers
             var result = _visionService.Identify(command.File);
 
             if (!thereIsPug(result))
-                AddNotification("Feature", $"It {result[0].Description} is not a Pug! :(");
+                AddNotification("Feature", $"This is not a Pug! :(");
 
             if (Invalid)
                 return new CommandResult(false, $"This isn't a Pug!", result);
@@ -34,10 +34,10 @@ namespace PetControl.Domain.Commands.Handlers
                 result);
         }
 
-        private static bool thereIsPug(IEnumerable<Feature> featuries)
+        private static bool thereIsPug(IEnumerable<Feature> features)
         {
        
-            return featuries.Any(feature => feature.Description == "pug");
+            return features.Any(feature => feature.Description == "pug");
         }
 
     }
