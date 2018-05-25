@@ -1,0 +1,13 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PetControl.Shared\PetControl.Shared.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Flunt" Version="1.0.2" />
+    <PackageReference Include="Google.Cloud.Vision.V1" Version="1.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="2.0.0" />
+  </ItemGroup>
+</Project>
