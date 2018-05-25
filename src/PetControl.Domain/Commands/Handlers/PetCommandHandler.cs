@@ -1,8 +1,11 @@
-﻿using Flunt.Notifications;
+﻿using System.Collections.Generic;
+using System.Linq;
+using Flunt.Notifications;
 using PetControl.Domain.Commands.Inputs;
 using PetControl.Domain.Commands.Outputs;
 using PetControl.Domain.Services;
 using PetControl.Shared.Command;
+using Feature = PetControl.Domain.Entities.Feature;
 
 namespace PetControl.Domain.Commands.Handlers
 {
@@ -19,7 +22,7 @@ namespace PetControl.Domain.Commands.Handlers
         {
             var result = _visionService.Identify(command.File);
 
-            if (result[0].Description != "pug")
+            if (!thereIsPug(result))
                 AddNotification("Feature", $"It {result[0].Description} is not a Pug! :(");
 
             if (Invalid)
@@ -30,6 +33,12 @@ namespace PetControl.Domain.Commands.Handlers
                 "This is a Pug!", 
                 result);
         }
-        
+
+        private static bool thereIsPug(IEnumerable<Feature> featuries)
+        {
+       
+            return featuries.Any(feature => feature.Description == "pug");
+        }
+
     }
 }
